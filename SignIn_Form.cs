@@ -12,10 +12,13 @@ namespace StudyBuddy
 {
     public partial class SignIn_Form : Form
     {
+        databaseConnector db;
         public SignIn_Form()
         {            
             InitializeComponent();
             lblWelcomeBack.Select();
+            db = new databaseConnector();
+
         }
         //
         //placeholder event for username
@@ -68,6 +71,39 @@ namespace StudyBuddy
             {
                 txtboxPassword.PasswordChar = '•';
             }
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if ((string.IsNullOrEmpty(txtboxUsername.Text) || txtboxUsername.Text == "Username or Email") && (string.IsNullOrEmpty(txtboxPassword.Text) || txtboxPassword.Text == "Password"))
+                {
+                    throw new ArgumentException("Please fill all fields.");
+                }
+                else if (string.IsNullOrEmpty(txtboxUsername.Text) || txtboxUsername.Text == "Username or Email")
+                {
+                    throw new ArgumentException("Please input your username or email.");
+                }
+                else if (string.IsNullOrEmpty(txtboxPassword.Text) || txtboxPassword.Text == "Password")
+                {
+                    throw new ArgumentException("Please input your password.");
+                }
+                
+
+                if (db.Authenticate(txtboxUsername.Text, txtboxPassword.Text) == true)
+                {
+                    MessageBox.Show("Signed In successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect password or username");
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
     }
 }
