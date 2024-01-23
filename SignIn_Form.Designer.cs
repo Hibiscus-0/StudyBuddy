@@ -28,33 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picboxImage = new System.Windows.Forms.PictureBox();
             this.panelSignIn = new System.Windows.Forms.Panel();
             this.chkboxShowPass = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblToSignUp = new System.Windows.Forms.Label();
             this.linllblForgotPass = new System.Windows.Forms.LinkLabel();
             this.btnSignIn = new System.Windows.Forms.Button();
             this.txtboxPassword = new System.Windows.Forms.TextBox();
             this.txtboxUsername = new System.Windows.Forms.TextBox();
             this.lblWelcomeBack = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picboxImage)).BeginInit();
+            this.picboxImage = new System.Windows.Forms.PictureBox();
             this.panelSignIn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxImage)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picboxImage
-            // 
-            this.picboxImage.Image = global::StudyBuddy.Properties.Resources.Placeholder;
-            this.picboxImage.Location = new System.Drawing.Point(335, 0);
-            this.picboxImage.Name = "picboxImage";
-            this.picboxImage.Size = new System.Drawing.Size(465, 450);
-            this.picboxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picboxImage.TabIndex = 0;
-            this.picboxImage.TabStop = false;
             // 
             // panelSignIn
             // 
             this.panelSignIn.Controls.Add(this.chkboxShowPass);
-            this.panelSignIn.Controls.Add(this.label1);
+            this.panelSignIn.Controls.Add(this.lblToSignUp);
             this.panelSignIn.Controls.Add(this.linllblForgotPass);
             this.panelSignIn.Controls.Add(this.btnSignIn);
             this.panelSignIn.Controls.Add(this.txtboxPassword);
@@ -77,15 +67,16 @@
             this.chkboxShowPass.UseVisualStyleBackColor = true;
             this.chkboxShowPass.CheckedChanged += new System.EventHandler(this.chkboxShowPass_CheckedChanged);
             // 
-            // label1
+            // lblToSignUp
             // 
-            this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(112, 427);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 14);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Create an Account →";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblToSignUp.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblToSignUp.Location = new System.Drawing.Point(112, 427);
+            this.lblToSignUp.Name = "lblToSignUp";
+            this.lblToSignUp.Size = new System.Drawing.Size(112, 14);
+            this.lblToSignUp.TabIndex = 5;
+            this.lblToSignUp.Text = "Create an Account →";
+            this.lblToSignUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblToSignUp.Click += new System.EventHandler(this.lblToSignUp_Click);
             // 
             // linllblForgotPass
             // 
@@ -151,6 +142,16 @@
             this.lblWelcomeBack.Text = "Welcome Back!";
             this.lblWelcomeBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // picboxImage
+            // 
+            this.picboxImage.Image = global::StudyBuddy.Properties.Resources.Placeholder;
+            this.picboxImage.Location = new System.Drawing.Point(335, 0);
+            this.picboxImage.Name = "picboxImage";
+            this.picboxImage.Size = new System.Drawing.Size(465, 450);
+            this.picboxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picboxImage.TabIndex = 0;
+            this.picboxImage.TabStop = false;
+            // 
             // SignIn_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,9 +161,9 @@
             this.Controls.Add(this.picboxImage);
             this.Name = "SignIn_Form";
             this.Text = "SignIn_Form";
-            ((System.ComponentModel.ISupportInitialize)(this.picboxImage)).EndInit();
             this.panelSignIn.ResumeLayout(false);
             this.panelSignIn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -175,7 +176,7 @@
         private System.Windows.Forms.Label lblWelcomeBack;
         private System.Windows.Forms.TextBox txtboxPassword;
         private System.Windows.Forms.Button btnSignIn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblToSignUp;
         private System.Windows.Forms.LinkLabel linllblForgotPass;
         private System.Windows.Forms.CheckBox chkboxShowPass;
     }

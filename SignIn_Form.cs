@@ -22,7 +22,6 @@ namespace StudyBuddy
         }
         //
         //placeholder event for username
-        //
         private void txtboxUsername_Enter(object sender, EventArgs e)
         {
             if(txtboxUsername.Text == "Username or Email")
@@ -41,7 +40,6 @@ namespace StudyBuddy
         }
         //
         //placeholder event for password
-        //
         private void txtboxPassword_Enter(object sender, EventArgs e)
         {
             if (txtboxPassword.Text == "Password")
@@ -59,8 +57,7 @@ namespace StudyBuddy
             }
         }
         //
-        //
-        //
+        //event for show password
         private void chkboxShowPass_CheckedChanged(object sender, EventArgs e)
         {
             if (chkboxShowPass.Checked) 
@@ -72,9 +69,11 @@ namespace StudyBuddy
                 txtboxPassword.PasswordChar = '•';
             }
         }
-
+        //
+        //event for signing in
         private void btnSignIn_Click(object sender, EventArgs e)
         {
+            //try catch for exception handling
             try
             {
                 if ((string.IsNullOrEmpty(txtboxUsername.Text) || txtboxUsername.Text == "Username or Email") && (string.IsNullOrEmpty(txtboxPassword.Text) || txtboxPassword.Text == "Password"))
@@ -90,7 +89,7 @@ namespace StudyBuddy
                     throw new ArgumentException("Please input your password.");
                 }
                 
-
+                //if else statement for authentication
                 if (db.Authenticate(txtboxUsername.Text, txtboxPassword.Text) == true)
                 {
                     MessageBox.Show("Signed In successfully");
@@ -99,11 +98,22 @@ namespace StudyBuddy
                 {
                     MessageBox.Show("Incorrect password or username");
                 }
+                //
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }            
+            }   
+            //
         }
+        //
+        //event for moving to sign up form
+        private void lblToSignUp_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var signUp = new SignUp_Form();
+            signUp.Show();
+        }
+        //
     }
 }
